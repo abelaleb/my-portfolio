@@ -10,7 +10,7 @@ const navigation = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 bg-background text-primary p-4 border-b  ">
+    <header className="sticky top-0 z-10 bg-background/85 text-primary p-4 border-b  ">
       <div className=" mx-auto px-4 w-full max-w-[75rem]  ">
         <nav className="flex justify-between items-center">
           <Link href="/" className="text-xl font-bold">

@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-/* @plugin "tailwindcss-animate"; */
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
 }
 
 :root {
@@ -15,7 +16,7 @@
   --secondary: #ff9979;
   --accent: #ff6a3c;
   --foreground: #4d4e4c;
-  --card: oklch(1 0 0);
+  --card: #F8E5D5;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -53,7 +54,8 @@
   --primary: #c22d00;
   --secondary: #851f00;
   --accent: #c22d00;
-  --card: oklch(0.145 0 0);
+  --card: #291506;
+
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
