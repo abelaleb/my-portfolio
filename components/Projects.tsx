@@ -5,29 +5,74 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { projects } from "@/data/";
-import placeholder from "@/public/placeholder.png";
+import { useEffect,  useState } from "react";
+import { useInterval } from "@/hooks/use-interval";
+import { Button } from "./ui/button";
+import { motion } from "framer-motion";
+
 export function Projects() {
+  //eslint-disable-next-line
+  const [api, setApi] = useState<any>();
+  const [count, setCount] = useState<number>(0);
+  const [current, setCurrent] = useState<number>(0);
+  //eslint-disable-next-line
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  // Set up the carousel API
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  // Custom hook for autoplay interval
+  useInterval(
+    () => {
+      if (api && isPlaying && !isPaused) {
+        api.scrollNext();
+      }
+    },
+    isPlaying ? 3000 : null
+  );
+
   return (
-    <section id="projects" className="py-16">
-      <h2 className="text-primary text-3xl text-center mb-4">My projects</h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto">
-        As a Software Engineer in healthcare, I&apos;ve faced many challenges
-        and triumphs. Here are key projects that shaped my skills:
-      </p>
-      <Carousel className="p-0">
+    <section id="projects" className="py-6 md:py-16">
+      <motion.h2
+        className="text-primary text-3xl text-center py-6 md:py-8 font-semibold"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        My projects
+      </motion.h2>
+      {/* <p className="text-start pl-10 md:pl-8 sm:pl-4 mb-12 max-w-2xl mx-auto">
+        Some of my projects:
+      </p> */}
+      <Carousel
+        setApi={setApi}
+        className="p-0"
+        // onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        opts={{ loop: true }}
+      >
         <CarouselContent className="m-0">
           {projects.map((project) => (
             <CarouselItem
               key={project.id}
-              className="md:basis-1/2 lg:basis-1/3 pl-4"
+              className="basis-full sm:basis-1/2 lg:basis-1/4 pl-4 pr-4 sm:pl-2 sm:pr-2 p-0"
             >
-              <div className="bg-secondary-100 dark:bg-secondary-500/10 rounded-lg p-4 h-full bg-[#F8E5D5] dark:bg-[#1A202C]">
-                <div className="aspect-square relative mb-4">
+              <div className="bg-primary/10 rounded-lg p-4 h-full">
+                <div className="aspect-video relative mb-4">
                   <Image
-                    src={placeholder}
+                    src={project.img}
                     alt={project.title}
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover rounded-lg "
                   />
                 </div>
                 <h3 className="font-semibold mb-2">{project.title}</h3>
@@ -48,10 +93,22 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <div className="flex justify-center mt-8 gap-2">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div> */}
+        <div className="flex justify-center mt-4">
+          <div className="flex gap-1">
+            {Array.from({ length: count }).map((_, index) => (
+              <Button
+                key={index}
+                variant="ghost"
+                size="icon"
+                className={`cursor-pointer w-2 h-2 rounded-full hover:bg-primary ${
+                  index === current ? "bg-primary" : "bg-card"
+                }`}
+                onClick={() => api?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </Carousel>
     </section>
   );

@@ -7,7 +7,6 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
 }
 
 :root {
@@ -16,7 +15,8 @@
   --secondary: #ff9979;
   --accent: #ff6a3c;
   --foreground: #4d4e4c;
-  --card: #F8E5D5;
+  --card: #f2c7aa;
+
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -127,8 +127,17 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+   
+    input:focus {
+      outline: none;
+      border: none;
+    }
+    textarea:focus {
+      outline: none;
+      border: none;
+    }
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-white;
   }
 }

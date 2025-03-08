@@ -15,15 +15,15 @@ export default function Home() {
       className={`${sora.className} min-h-screen bg-background text-foreground`}
     >
       <Header />
-      <main className="max-w-[1400px] mx-auto px-4">
+      <main className="max-w-[screen] mx-auto">
         <Hero />
         <Skills />
         <Projects />
         <Timeline />
       </main>
       <Contact />
-      <footer className="max-w-[1400px] mx-auto px-4 py-8 text-center">
-        <p>© 2024 made by abel. All rights reserved.</p>
+      <footer className="max-w-[screen] bg-primary text-white/75 p-8 pb-4 text-center">
+        <p>© 2024 made by Abel A. All rights reserved.</p>
         <p className="mt-2 text-sm opacity-75">
           About this website: built with React & Next.js, TypeScript, Tailwind
           CSS, Framer Motion, Vercel hosting.
