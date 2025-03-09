@@ -6,7 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isIcon?: boolean
 }
 
-export function Button({ children, variant = "primary", isIcon = false, className, ...props }: ButtonProps) {
+export function Button({ children, variant = "primary", isIcon = false, className }: ButtonProps) {
   return (
     <button className={cn(
         "inline-flex items-center justify-center rounded-full transition-colors",
