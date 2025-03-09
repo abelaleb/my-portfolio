@@ -1,3 +1,4 @@
+"use client" 
 import Image from "next/image";
 import {
   Carousel,
@@ -30,7 +31,6 @@ export function Projects() {
     });
   }, [api]);
 
-  // Custom hook for autoplay interval
   useInterval(
     () => {
       if (api && isPlaying && !isPaused) {
@@ -72,6 +72,7 @@ export function Projects() {
                     src={project.img}
                     alt={project.title}
                     fill
+                    sizes="100px"
                     className="object-cover rounded-lg "
                   />
                 </div>
@@ -85,6 +86,7 @@ export function Projects() {
                       alt=""
                       width={24}
                       height={24}
+                      
                       className="w-6 h-6"
                     />
                   ))}

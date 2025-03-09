@@ -10,18 +10,19 @@ export function Hero() {
     <section className=" px-4 py-6 md:py-16 flex justify-center items-center md:flex-row gap-8 w-full ">
       <div className="flex flex-col md:flex-row gap-8">
         <motion.div
-          className=" aspect-square bg-card rounded-[40px] overflow-hidden md:w-[300px] md:h-[300px] w-[300px] h-[300px]"
+          className="aspect-square bg-card rounded-[40px] overflow-hidden md:w-[300px] md:h-[300px] w-[300px] h-[300px] flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Image
+           <Image
             src={portrait}
             alt="Abel Alebachew"
             width={300}
             height={300}
             className="w-full h-full object-cover"
           />
+        
         </motion.div>
         <div className="flex justify-between items-center gap-8">
           <div className="">

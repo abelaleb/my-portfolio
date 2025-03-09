@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, type FormEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { Button } from "./Button";
 import {
   Check,
@@ -16,38 +16,61 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-
+import emailjs from "@emailjs/browser";
+type formData = {
+  email: string;
+  message: string;
+};
 export function Contact() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
   const [numberCopied, setNumberCopied] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const emailRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [formData, setFormData] = useState<formData>({
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    console.log({ email, message });
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset form after showing success message
-    setTimeout(() => {
-      setEmail("");
-      setMessage("");
-      setIsSuccess(false);
-    }, 3000);
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSuccess(false);
+    const templateParams = {
+      to_name: "Abel Alebachew",
+      message: formData.message,
+      reply_to: formData.email,
+    };
+  
+    try {
+      setIsSubmitting(true);
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+      );
+      console.log(response);
+      setFormData({ email: "", message: "" });
+      setIsSuccess(true);
+      
+      // Optionally, reset submission state after a delay if needed
+      setTimeout(() => setIsSubmitting(false), 5000);
+      setTimeout(() => setIsSuccess(false), 2000);
+    } catch (error) {
+      console.log(error);
+      setIsSuccess(false);
+      setIsSubmitting(false);
+    }
+  };
+  
   const copyEmail = () => {
     navigator.clipboard.writeText("abelalebachewasfaw@gmail.com");
     setEmailCopied(true);
@@ -78,7 +101,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-white text-3xl my-8 font-normal text-center flex items-center justify-center gap-2"
+          className="text-white text-3xl my-6 font-normal text-center flex items-center justify-center gap-2"
         >
           Contact me
         </motion.h2>
@@ -91,7 +114,7 @@ export function Contact() {
         >
         </motion.div> */}
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 p-2 items-start">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-6 p-2 items-start">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -103,13 +126,13 @@ export function Contact() {
               Get in touch
             </h3>
 
-            <div className="flex items-center gap-3 mb-4 group">
+            <div className="flex items-center gap-2 mb-2 group">
               <div className="bg-white/20 p-2 rounded-full">
                 <Mail className="h-5 w-5 text-white" />
               </div>
-              <div className="flex-1">
+              <div className="flex flex-col overflow-hidden">
                 <p className="text-white/70 text-sm">Email</p>
-                <p className="text-white group-hover:text-white/90 w-full">
+                <p className="text-white group-hover:text-white/90 ">
                   abelalebachewasfaw@gmail.com
                 </p>
               </div>
@@ -125,7 +148,7 @@ export function Contact() {
                 )}
               </button>
             </div>
-            <div className="flex items-center gap-3 mb-4 group">
+            <div className="flex items-center gap-2 mb-2 group">
               <div className="bg-white/20 p-2 rounded-full">
                 <Phone className="h-5 w-5 text-white" />
               </div>
@@ -147,7 +170,7 @@ export function Contact() {
                 )}
               </button>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <div className="bg-white/20 p-2 rounded-full">
                 <MessageSquare className="h-5 w-5 text-white" />
               </div>
@@ -157,7 +180,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="mt-2 pt-4 border-t border-white/10">
               <p className="text-white/70 text-sm mb-4">Connect with me</p>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -223,7 +246,7 @@ export function Contact() {
               <label
                 htmlFor="email"
                 className={`absolute left-4 transition-all duration-200 ${
-                  focusedField === "email" || email
+                  focusedField === "email" || formData.email
                     ? "-top-2.5 text-xs bg-primary px-1"
                     : "top-4 text-white/70"
                 }`}
@@ -232,26 +255,25 @@ export function Contact() {
               </label>
               <input
                 id="email"
-                ref={emailRef}
                 type="email"
+                name="email"
                 className={`w-full p-4 rounded-lg text-white bg-white/10 border-2 transition-all duration-200 ${
                   focusedField === "email"
                     ? "border-white"
                     : "border-transparent"
                 } focus:outline-none`}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={handleChange}
                 onFocus={() => setFocusedField("email")}
                 onBlur={() => setFocusedField(null)}
                 required
               />
             </div>
-
             <div className="mb-6 relative">
               <label
                 htmlFor="message"
                 className={`absolute left-4 transition-all duration-200 ${
-                  focusedField === "message" || message
+                  focusedField === "message" || formData.message
                     ? "-top-2.5 text-xs bg-primary px-1"
                     : "top-4 text-white/70"
                 }`}
@@ -260,14 +282,14 @@ export function Contact() {
               </label>
               <textarea
                 id="message"
-                ref={messageRef}
+                name="message"
                 className={`w-full p-4 rounded-lg text-white min-h-[150px] resize-vertical bg-white/10 border-2 transition-all duration-200 ${
                   focusedField === "message"
                     ? "border-white"
                     : "border-transparent"
                 } focus:outline-none`}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                value={formData.message}
+                onChange={handleChange}
                 onFocus={() => setFocusedField("message")}
                 onBlur={() => setFocusedField(null)}
                 required

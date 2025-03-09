@@ -38,7 +38,7 @@ export function Header() {
               className="text-lg font-semibold lg:text-[15px] md:font-bold"
             >
               Abel Alebachew
-            </Link>
+            </Link> 
           </motion.div>
           <div className="hidden justify-center items-center space-x-4 md:flex">
             <div className="flex space-x-4 ">
