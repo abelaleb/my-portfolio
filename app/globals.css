@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: #f6f8eb;
+  --background: rgb(246, 248, 235);
   --primary: #ff6b3d;
   --secondary: #ff9979;
   --accent: #ff6a3c;
@@ -127,7 +127,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-   
+
     input:focus {
       outline: none;
       border: none;

@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import emailjs from "@emailjs/browser";
+import Image from "next/image";
 type formData = {
   email: string;
   message: string;
@@ -48,7 +48,7 @@ export function Contact() {
       message: formData.message,
       reply_to: formData.email,
     };
-  
+
     try {
       setIsSubmitting(true);
       const response = await emailjs.send(
@@ -60,26 +60,26 @@ export function Contact() {
       console.log(response);
       setFormData({ email: "", message: "" });
       setIsSuccess(true);
-      
+
       // Optionally, reset submission state after a delay if needed
-      setTimeout(() => setIsSubmitting(false), 5000);
-      setTimeout(() => setIsSuccess(false), 2000);
+      setTimeout(() => setIsSubmitting(false), 500);
+      setTimeout(() => setIsSuccess(false), 500);
     } catch (error) {
       console.log(error);
       setIsSuccess(false);
       setIsSubmitting(false);
     }
   };
-  
+
   const copyEmail = () => {
     navigator.clipboard.writeText("abelalebachewasfaw@gmail.com");
     setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
+    setTimeout(() => setEmailCopied(false), 500);
   };
   const copyNumber = () => {
     navigator.clipboard.writeText("+251904342947");
     setNumberCopied(true);
-    setTimeout(() => setNumberCopied(false), 2000);
+    setTimeout(() => setNumberCopied(false), 500);
   };
 
   return (
@@ -96,49 +96,48 @@ export function Contact() {
         ></div>
       </div>
 
-      <div className="w-full max-w-[75rem] mx-auto relative z-10">
+      <div className="w-full max-w-[90%] mx-auto  relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-white text-3xl my-6 font-normal text-center flex items-center justify-center gap-2"
+          className="text-white text-2xl m-2 p-4 md:my-4 font-normal flex justify-center md:p-0"
         >
-          Contact me
+          Let&apos;s Connect!
         </motion.h2>
 
         {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-white text-center mb-10 max-w-2xl mx-auto"
-        >
-        </motion.div> */}
+          className="text-white text-center mb-10 max-w-2xl mx-auto hidden md:flex"
+        ></motion.div> */}
 
-        <div className="flex flex-col md:flex-row gap-3 md:gap-6 p-2 items-start">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-6 pb-2 items-start">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white/10 p-6 rounded-lg backdrop-blur-sm w-full md:w-1/3"
+            className="bg-white/10 p-4 rounded-lg backdrop-blur-sm w-full md:w-1/3"
           >
             <h3 className="text-white text-xl mb-4 font-medium">
               Get in touch
             </h3>
 
-            <div className="flex items-center gap-2 mb-2 group">
+            <div className="flex items-center gap-2 mb-2 group w-full">
               <div className="bg-white/20 p-2 rounded-full">
                 <Mail className="h-5 w-5 text-white" />
               </div>
-              <div className="flex flex-col overflow-hidden">
+              <div className="flex-1 w-full md:w-[50%] md:overflow-hidden">
                 <p className="text-white/70 text-sm">Email</p>
-                <p className="text-white group-hover:text-white/90 ">
+                <p className="text-white group-hover:text-white/90  ">
                   abelalebachewasfaw@gmail.com
                 </p>
               </div>
               <button
                 onClick={copyEmail}
-                className="p-2 hover:bg-white/20 rounded-full transition-colors"
+                className="p-2 hover:bg-white/20 rounded-full transition-colors hover:cursor-pointer"
                 aria-label="Copy email"
               >
                 {emailCopied ? (
@@ -160,7 +159,7 @@ export function Contact() {
               </div>
               <button
                 onClick={copyNumber}
-                className="p-2 hover:bg-white/20 rounded-full transition-colors"
+                className="p-2 hover:bg-white/20 rounded-full transition-colors hover:cursor-pointer"
                 aria-label="Copy Phone Number"
               >
                 {numberCopied ? (
@@ -235,6 +234,7 @@ export function Contact() {
           </motion.div>
 
           {/* Contact form */}
+
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -242,6 +242,9 @@ export function Contact() {
             onSubmit={handleSubmit}
             className="w-full md:w-2/3 text-white"
           >
+            <div className="mb-4 ml-4 flex md:hidden font-semibold">
+              Write me a quick message
+            </div>
             <div className="mb-6 relative">
               <label
                 htmlFor="email"
@@ -257,7 +260,7 @@ export function Contact() {
                 id="email"
                 type="email"
                 name="email"
-                className={`w-full p-4 rounded-lg text-white bg-white/10 border-2 transition-all duration-200 ${
+                className={`w-full p-3 rounded-lg text-white bg-white/10 border-2 transition-all duration-200 ${
                   focusedField === "email"
                     ? "border-white"
                     : "border-transparent"
@@ -283,7 +286,7 @@ export function Contact() {
               <textarea
                 id="message"
                 name="message"
-                className={`w-full p-4 rounded-lg text-white min-h-[150px] resize-vertical bg-white/10 border-2 transition-all duration-200 ${
+                className={`hover:cursor-text w-full p-3 rounded-lg text-white min-h-[150px] resize-vertical bg-white/10 border-2 transition-all duration-200 ${
                   focusedField === "message"
                     ? "border-white"
                     : "border-transparent"

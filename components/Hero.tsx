@@ -10,22 +10,21 @@ export function Hero() {
     <section className=" px-4 py-6 md:py-16 flex justify-center items-center md:flex-row gap-8 w-full ">
       <div className="flex flex-col md:flex-row gap-8">
         <motion.div
-          className="aspect-square bg-card rounded-[40px] overflow-hidden md:w-[300px] md:h-[300px] w-[300px] h-[300px] flex justify-center items-center"
+          className="aspect-square dark:bg-white/10 rounded-lg backdrop-blur-sm  rounded-b-lg overflow-hidden md:w-[300px] md:h-[300px] w-[250px] h-[250px] flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-           <Image
+          <Image
             src={portrait}
             alt="Abel Alebachew"
             width={300}
             height={300}
             className="w-full h-full object-cover"
-          />
-        
+          />{" "}
         </motion.div>
-        <div className="flex justify-between items-center gap-8">
-          <div className="">
+        <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-end lg:h-full">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -38,7 +37,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-primary text-2xl md:text-4xl md:mb-0"
+              className="md:text-primary text-white text-2xl md:text-3xl md:mb-0 mb-2"
             >
               Abel Alebachew
             </motion.h1>
@@ -46,7 +45,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="max-w-xl text-lg mb-8 sm:mb-2"
+              className="max-w-xl text-lg mb-2 md:mb-8 "
             >
               I&apos;m a <span className="text-primary">web developer</span>{" "}
               based in Ethiopia. I Love Transforming Ideas into Interactive
@@ -56,16 +55,17 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="flex gap-4 mb-8"
+              className="flex gap-4 mb-2"
             >
-              <a
-                href="/Abel-Alebachew-Resume.pdf"
-                download="Abel_Alebachew_Resume.pdf"
+              <Link
+                href="https://drive.google.com/file/d/1wnAAyCzibItDw8J0Leoo52zeHLPiGA8a/view?usp=sharing"
+                target="_blank"
               >
-                <Button>Download CV</Button>
-              </a>
-
-              <Button variant="secondary">Contact me</Button>
+                <Button>Get CV</Button>
+              </Link>
+              <Link href="/#contact">
+                <Button variant="secondary">Contact me</Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -120,6 +120,7 @@ export function Hero() {
           <Image
             src="/whatsapp1.svg"
             alt="WhatsApp icon"
+            className="w-6 h-6"
             width={24}
             height={24}
           />
