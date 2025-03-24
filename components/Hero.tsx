@@ -5,7 +5,9 @@ import { Twitter, Linkedin, Github, Send } from "lucide-react";
 import { Button } from "./Button";
 import portrait from "@/public/portrait0.png";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 export function Hero() {
+  const { theme } = useTheme();
   return (
     <section className=" px-4 py-6 md:py-16 flex justify-center items-center md:flex-row gap-8 w-full ">
       <div className="flex flex-col md:flex-row gap-8">
@@ -118,7 +120,7 @@ export function Hero() {
           rel="noopener noreferrer"
         >
           <Image
-            src="/whatsapp1.svg"
+            src={theme === "dark" ? "/whatsappdark.svg" : "/whatsapplight.svg"}
             alt="WhatsApp icon"
             className="w-6 h-6"
             width={24}

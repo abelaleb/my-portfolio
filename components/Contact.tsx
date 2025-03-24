@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, ChangeEvent } from "react";
 import { Button } from "./Button";
 import {
@@ -131,7 +130,7 @@ export function Contact() {
               </div>
               <div className="flex-1 w-full md:w-[50%] md:overflow-hidden">
                 <p className="text-white/70 text-sm">Email</p>
-                <p className="text-white group-hover:text-white/90  ">
+                <p className="text-white group-hover:text-white/90">
                   abelalebachewasfaw@gmail.com
                 </p>
               </div>
@@ -198,7 +197,7 @@ export function Contact() {
 
                 <Link
                   href="https://wa.me/+251904342947"
-                  className="text-green  transition-colors hover:transform hover:scale-110"
+                  className="text-green transition-colors hover:transform hover:scale-110"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -207,8 +206,10 @@ export function Contact() {
                     alt="WhatsApp icon"
                     width={24}
                     height={24}
-                    className="stroke-white"
+                    className="w-full h-full"
+                    style={{ fill: "white" }}
                   />
+                  {/* <WhatsAppIcon /> */}
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/abel-alebachew-2b8420229/"
