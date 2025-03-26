@@ -5,7 +5,8 @@ export const projects = [
     des: "Browse movies, TV shows, and actors using a React, TypeScript, and Tailwind CSS stack.",
     img: "/images/CineAtlas.png",
     iconLists: ["/re.svg", "/ts.svg", "/tail.svg"],
-    link: "https://github.com/abelaleb/CineAtlas",
+    githublink: "https://github.com/abelaleb/CineAtlas",
+    link: "https://cine-atlas.vercel.app/",
   },
   {
     id: 2,
@@ -14,22 +15,24 @@ export const projects = [
     img: "/images/Mengedegna.png",
     imgClassName: "w-full h-full",
     iconLists: ["/re.svg", "/node.svg", "/mongo.svg", "/tail.svg", "/ts.svg"],
-    link: "https://github.com/abelaleb/travel-log",
+    githublink: "https://github.com/abelaleb/travel-log",
   },
   {
     id: 3,
-    title: "CV Maker",
+    title: "CV Builder",
     des: "A CV builder designed to create cv/Resumes with a user-friendly interface built using React, Javascript and HTML/CSS.",
     img: "/images/CV-maker.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+    githublink: "https://github.com/abelaleb/CV-Builder",
     link: "https://cv-builder-ruddy.vercel.app/",
   },
   {
-    id:4,
-    title:'Tic-Tac-Toe',
-    des:"A simple tic-tac-toe game using Vanilla JavaScript, HTML, and CSS.",
-    img:'/images/Tic-tac-toe.png',
+    id: 4,
+    title: "Tic-Tac-Toe",
+    des: "A simple tic-tac-toe game using Vanilla JavaScript, HTML, and CSS.",
+    img: "/images/Tic-tac-toe.png",
     iconLists: ["/js.svg", "/html.svg", "/css.svg"],
-    link:'https://tic-tac-toe-game-gules-eight.vercel.app/'
-  }
+    githublink: "https://github.com/abelaleb/Tic-Tac-Toe-game",
+    link: "https://tic-tac-toe-game-gules-eight.vercel.app/",
+  },
 ];

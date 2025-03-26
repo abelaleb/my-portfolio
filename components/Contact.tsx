@@ -102,7 +102,7 @@ export function Contact() {
           transition={{ duration: 0.5 }}
           className="text-white text-2xl m-2 p-4 md:my-4 font-normal flex justify-center md:p-0"
         >
-          Let&apos;s Connect!
+          Have a project idea in mind? 
         </motion.h2>
 
         {/* <motion.div
@@ -174,7 +174,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-white/70 text-sm">Response time</p>
-                <p className="text-white">Within 24 hours</p>
+                <p className="text-white">Within 4 hours</p>
               </div>
             </div>
 
@@ -207,9 +207,7 @@ export function Contact() {
                     width={24}
                     height={24}
                     className="w-full h-full"
-                    style={{ fill: "white" }}
                   />
-                  {/* <WhatsAppIcon /> */}
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/abel-alebachew-2b8420229/"
