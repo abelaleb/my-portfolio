@@ -195,7 +195,7 @@ export function Contact() {
                   <Send size={24} />
                 </Link>
 
-                <Link
+                {/* <Link
                   href="https://wa.me/+251904342947"
                   className="text-green transition-colors hover:transform hover:scale-110"
                   target="_blank"
@@ -208,7 +208,7 @@ export function Contact() {
                     height={24}
                     className="w-full h-full"
                   />
-                </Link>
+                </Link> */}
                 <Link
                   href="https://www.linkedin.com/in/abel-alebachew-2b8420229/"
                   className="text-white transition-colors hover:transform hover:scale-110"

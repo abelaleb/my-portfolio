@@ -8,6 +8,16 @@ export const projects = [
     githublink: "https://github.com/abelaleb/CineAtlas",
     link: "https://cine-atlas.vercel.app/",
   },
+
+  {
+    id: 4,
+    title: "Addor models agency",
+    des: " A full-stack model agency platform built with Next.js, Prisma, and Neon. Models can apply by uploading images, and approved talents are displayed in a dynamic public gallery. Includes an admin dashboard for talent management and approval workflows.",
+    img: "/images/Tic-tac-toe.png",
+    iconLists: ["/js.svg", "/html.svg", "/css.svg"],
+    githublink: "https://github.com/abrahambelaygelaw/addor",
+    link: "https://addor.vercel.app/",
+  },
   {
     id: 2,
     title: "Mengedegna",
@@ -26,13 +36,13 @@ export const projects = [
     githublink: "https://github.com/abelaleb/CV-Builder",
     link: "https://cv-builder-ruddy.vercel.app/",
   },
-  {
-    id: 4,
-    title: "Tic-Tac-Toe",
-    des: "A simple tic-tac-toe game using Vanilla JavaScript, HTML, and CSS.",
-    img: "/images/Tic-tac-toe.png",
-    iconLists: ["/js.svg", "/html.svg", "/css.svg"],
-    githublink: "https://github.com/abelaleb/Tic-Tac-Toe-game",
-    link: "https://tic-tac-toe-game-gules-eight.vercel.app/",
-  },
+  // {
+  //   id: 4,
+  //   title: "Tic-Tac-Toe",
+  //   des: "A simple tic-tac-toe game using Vanilla JavaScript, HTML, and CSS.",
+  //   img: "/images/Tic-tac-toe.png",
+  //   iconLists: ["/js.svg", "/html.svg", "/css.svg"],
+  //   githublink: "https://github.com/abelaleb/Tic-Tac-Toe-game",
+  //   link: "https://tic-tac-toe-game-gules-eight.vercel.app/",
+  // },
 ];
