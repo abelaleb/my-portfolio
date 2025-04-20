@@ -72,6 +72,7 @@ export function Projects() {
                     alt={project.title}
                     fill
                     sizes="400px"
+                    quality={100}
                     className="object-cover rounded-lg hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -95,9 +96,9 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-3 mt-auto text-[12px]">
-                  {project.link && (
+                  {project.githublink && (
                     <motion.a
-                      href={project.link}
+                      href={project.githublink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex justify-center items-center gap-2 text-primary hover:text-white bg-primary/20 hover:bg-primary px-2 py-1 rounded-lg transition-all duration-300"
@@ -108,9 +109,9 @@ export function Projects() {
                       GitHub
                     </motion.a>
                   )}
-                  {project.githublink && (
+                  {project.link && (
                     <motion.a
-                      href={project.githublink}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-primary hover:text-white bg-primary/20 hover:bg-primary px-2 py-1 rounded-lg transition-all duration-300"

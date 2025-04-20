@@ -10,16 +10,16 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 2,
     title: "Addor models agency",
     des: " A full-stack model agency platform built with Next.js, Prisma, and Neon. Models can apply by uploading images, and approved talents are displayed in a dynamic public gallery. Includes an admin dashboard for talent management and approval workflows.",
-    img: "/images/Tic-tac-toe.png",
-    iconLists: ["/js.svg", "/html.svg", "/css.svg"],
+    img: "/images/Addoragency.png",
+    iconLists: ["next.svg", "/ts.svg", "/html.svg", "/css.svg"],
     githublink: "https://github.com/abrahambelaygelaw/addor",
     link: "https://addor.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Mengedegna",
     des: "A Full-Stack MERN app for documenting travel experiences with map-based location selection and interactive markers.",
     img: "/images/Mengedegna.png",
@@ -28,7 +28,7 @@ export const projects = [
     githublink: "https://github.com/abelaleb/travel-log",
   },
   {
-    id: 3,
+    id: 4,
     title: "CV Builder",
     des: "A CV builder designed to create cv/Resumes with a user-friendly interface built using React, Javascript and HTML/CSS.",
     img: "/images/CV-maker.png",

@@ -60,7 +60,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm border-b-2 border-transparent text-foreground hover:border-primary/80 pt-1 hover:p-0 hover:text-primary dark:hover:border-secondary transition-colors duration-300"
+                  className="text-sm border-b-2 border-transparent text-foreground hover:border-primary/80 pt-1 hover:p-0 hover:text-white dark:hover:border-secondary transition-colors duration-300"
                 >
                   {item.name}
                 </Link>

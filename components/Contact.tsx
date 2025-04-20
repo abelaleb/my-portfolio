@@ -15,11 +15,12 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
-import Image from "next/image";
+
 type formData = {
   email: string;
   message: string;
 };
+
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -102,7 +103,7 @@ export function Contact() {
           transition={{ duration: 0.5 }}
           className="text-white text-2xl m-2 p-4 md:my-4 font-normal flex justify-center md:p-0"
         >
-          Have a project idea in mind? 
+          Have a project idea in mind?
         </motion.h2>
 
         {/* <motion.div
