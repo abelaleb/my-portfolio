@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { Github, Link } from "lucide-react";
 
 export function Projects() {
+  // eslint-disable-next-line
   const [api, setApi] = useState<any>();
   const [count, setCount] = useState<number>(0);
   const [current, setCurrent] = useState<number>(0);
