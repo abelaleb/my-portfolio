@@ -19,6 +19,16 @@ export const projects = [
     link: "https://addor.vercel.app/",
   },
   {
+    id: 2,
+    title: "Brain Tumor Detector",
+    des: "Upload MRI scans to get AI-driven tumor classification using a Next.js frontend and FastAPI + PyTorch backend.",
+    img: "/images/BrainTumorDetector.png",
+    iconLists: ["/next.svg", "/ts.svg", "/tail.svg"],
+    githublink: "https://github.com/abelaleb/brain-tumor-detector-front",
+    link: "https://brain-tumor-detector-front.vercel.app/", 
+  },
+  
+  {
     id: 3,
     title: "Mengedegna",
     des: "A Full-Stack MERN app for documenting travel experiences with map-based location selection and interactive markers.",
