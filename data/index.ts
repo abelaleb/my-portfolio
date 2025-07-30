@@ -1,16 +1,26 @@
 export const projects = [
   {
     id: 1,
-    title: "Cinema App",
+    title: "CineAtlas",
     des: "Browse movies, TV shows, and actors using a React, TypeScript, and Tailwind CSS stack.",
     img: "/images/CineAtlas.png",
     iconLists: ["/re.svg", "/ts.svg", "/tail.svg"],
     githublink: "https://github.com/abelaleb/CineAtlas",
     link: "https://cine-atlas.vercel.app/",
   },
-
   {
     id: 2,
+    title: "NeuroScopeAI – Multi-Disease Brain MRI Classifier",
+    des: "Upload brain MRI scans for AI-driven classification of multiple neurological diseases using a ResNet-18 + custom CNN model. Built with a Next.js frontend and FastAPI + PyTorch backend.",
+    img: "/images/BrainTumorDetector.png",
+    iconLists: ["/next.svg", "/ts.svg", "/tail.svg"],
+    githublink: "https://github.com/abelaleb/brain-tumor-detector-front",
+    link: "https://brain-tumor-detector-front.vercel.app/", 
+  },
+  
+
+  {
+    id: 3,
     title: "Addor models agency",
     des: " A full-stack model agency platform built with Next.js, Prisma, and Neon. Models can apply by uploading images, and approved talents are displayed in a dynamic public gallery. Includes an admin dashboard for talent management and approval workflows.",
     img: "/images/Addoragency.png",
@@ -19,17 +29,7 @@ export const projects = [
     link: "https://addor.vercel.app/",
   },
   {
-    id: 2,
-    title: "Brain Tumor Detector",
-    des: "Upload MRI scans to get AI-driven tumor classification using a Next.js frontend and FastAPI + PyTorch backend.",
-    img: "/images/BrainTumorDetector.png",
-    iconLists: ["/next.svg", "/ts.svg", "/tail.svg"],
-    githublink: "https://github.com/abelaleb/brain-tumor-detector-front",
-    link: "https://brain-tumor-detector-front.vercel.app/", 
-  },
-  
-  {
-    id: 3,
+    id: 4,
     title: "Mengedegna",
     des: "A Full-Stack MERN app for documenting travel experiences with map-based location selection and interactive markers.",
     img: "/images/Mengedegna.png",
@@ -38,7 +38,7 @@ export const projects = [
     githublink: "https://github.com/abelaleb/travel-log",
   },
   {
-    id: 4,
+    id: 5,
     title: "CV Builder",
     des: "A CV builder designed to create cv/Resumes with a user-friendly interface built using React, Javascript and HTML/CSS.",
     img: "/images/CV-maker.png",

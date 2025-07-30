@@ -9,6 +9,17 @@ interface TimelineItem {
 
 const experiences: TimelineItem[] = [
   {
+    title: "AI Research and Development Intern",
+    date: "2025",
+    description: `AI R&D Intern at iCog Labs, focused on deep learning optimization and biomedical data processing.`,
+    details: [
+      "Tuned and optimized deep neural networks for improved performance",
+      "Worked on semantic parsing and graph-based biomedical projects",
+      "Developed ML models using Python, PyTorch, and Scikit-learn",
+      "Collaborated with AI teams on research-driven platforms",
+    ],
+  },
+  {
     title: "Freelance Web Developer",
     date: "2025",
     description: `Freelance Web Developer worked on user-friendly web-applications, from concept to deployment, ensuring seamless user experiences.`,
@@ -69,8 +80,6 @@ export function Timeline() {
               variants={itemVariants}
               className="relative pl-8 mb-8"
             >
-             
-
               <motion.div
                 className="bg-secondary-100 dark:bg-secondary-500/10 rounded-lg p-6"
                 whileHover={{ scale: 1.02 }}

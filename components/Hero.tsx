@@ -62,7 +62,7 @@ export function Hero() {
             className="flex gap-4 mb-2"
           >
             <Link
-              href="https://drive.google.com/file/d/1wnAAyCzibItDw8J0Leoo52zeHLPiGA8a/view?usp=sharing"
+              href="https://drive.google.com/file/d/1bTO0dcet5WtN7ZGblclFjncS2odzCqFI/view?usp=drive_link"
               target="_blank"
             >
               <Button>Get CV</Button>
